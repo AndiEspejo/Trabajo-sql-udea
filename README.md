@@ -14,4 +14,4 @@ Aclaraciones:
 
 - El archivo Normalizacion - Moneda.sql contiene las instrucciones para normalizar la tabla Moneda.
 
-Se envian ambos archivos por si se la inserción de datos se desea realizar antes o después de la normalización de la tabla Moneda.
+Se envian ambos archivos por si la inserción de datos se desea realizar antes o después de la normalización de la tabla Moneda.
