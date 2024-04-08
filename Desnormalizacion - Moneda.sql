@@ -8,7 +8,7 @@ CREATE TABLE Moneda (
     Imagen bytea NULL
 );
 
--- Agregar atributo idMoneda
+-- Agregar Columna idMoneda
 ALTER TABLE Pais
 ADD COLUMN IdMoneda INTEGER;
 
@@ -17,16 +17,21 @@ INSERT INTO Moneda (Moneda, Sigla)
 SELECT DISTINCT Moneda, ''
 FROM Pais;
 
--- Actualizar el atributo idMoneda comparando con el id de la tabla moneda
+-- Actualizar la tabla idMoneda comparando con el id de la tabla moneda
 UPDATE Pais
 SET IdMoneda = (SELECT Id FROM Moneda WHERE Moneda.Moneda = Pais.Moneda)
 WHERE Moneda IS NOT NULL;
 
---Agregar la tabla foranea para relacionar Moneda y Pais
+--Agregar la llave foranea para relacionar Moneda y Pais
 ALTER TABLE Pais
 ADD CONSTRAINT fkPais_IdMoneda FOREIGN KEY (IdMoneda)
     REFERENCES Moneda(Id);
 
--- Hacer Drop de Moneda de la tabla pais
+-- Hacer Drop de la columna Moneda de la tabla pais
 ALTER TABLE Pais
 DROP COLUMN Moneda;
+
+-- Agregar Mapa y Bandera a la tabla pais
+ALTER TABLE pais
+ADD COLUMN Mapa bytea NULL,
+ADD COLUMN Bandera bytea NULL;
