@@ -39,3 +39,5 @@ ADD COLUMN Bandera BYTEA;
 -- Hacer Drop de la columna Moneda de la tabla pais
 ALTER TABLE Pais
 DROP COLUMN Moneda;
+
+-- Hacer Drop de la columna IdMoneda de la tabla pais
